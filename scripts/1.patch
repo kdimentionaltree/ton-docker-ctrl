@@ -1,0 +1,13 @@
+diff --git a/mypylib.py b/mypylib.py
+index b82b23f..4efa95f 100644
+--- a/mypylib.py
++++ b/mypylib.py
+@@ -951,7 +951,7 @@ def GetServiceUptime(name):
+ 	if len(err) > 0:
+ 		return
+ 	startTimestampMonotonic = Pars(output, f"{property}=", '\n')
+-	startTimestampMonotonic = int(startTimestampMonotonic) / 10**6
++	startTimestampMonotonic = int(startTimestampMonotonic) / 10**6 if startTimestampMonotonic is not None else 0
+ 	bootTimestamp = psutil.boot_time()
+ 	timeNow = time.time()
+ 	startTimestamp = bootTimestamp + startTimestampMonotonic

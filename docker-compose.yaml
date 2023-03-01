@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  node:
+    image: ton-node:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    init: true
+    tty: true
+    volumes:
+      - ton-db:/var/ton-work/db
+    network_mode: host
+volumes:
+  ton-db:
