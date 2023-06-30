@@ -11,5 +11,10 @@ services:
     volumes:
       - ton-db:/var/ton-work/db
     network_mode: host
+    secrets:
+      - config.json
 volumes:
   ton-db:
+secrets:
+  config.json:
+    file: private/config.json
